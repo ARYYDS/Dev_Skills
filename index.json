@@ -1,0 +1,52 @@
+{
+  "root": "D:\\Dev_Skills",
+  "generated_at": "2026-10-18T09:00:00-07:00",
+  "host": "DESKTOP-C4JG869",
+  "canonical": "Skill bodies live here. Client discovery paths are directory junctions into this root.",
+  "discovery": {
+    "grok": "C:\\Users\\ARYYDS\\.grok\\skills\\<name>",
+    "dsh": "C:\\Users\\ARYYDS\\.dsh\\skills\\<name>",
+    "agents": "C:\\Users\\ARYYDS\\.agents\\skills\\<name>"
+  },
+  "skills": [
+    {
+      "name": "serein-optane-wsl",
+      "folder": "WSL-PWSH-9P-Errors",
+      "path": "D:\\Dev_Skills\\WSL-PWSH-9P-Errors",
+      "skill_md": "D:\\Dev_Skills\\WSL-PWSH-9P-Errors\\SKILL.md",
+      "slash": "/serein-optane-wsl",
+      "description": "Load this skill before Serein compile, cargo build, go test, Linux package, fed.sh, WSL, git worktree, fetch, or Optane/GM7/9P path choice on DESKTOP-C4JG869. Sync with git fetch, never 9P copy. Keep automount off. Quote POSIX for pwsh 7. Linux is wsl -d FedoraLinux-43 -u SR. One-shot test worktrees are removed when the test ends. Use when compiling or testing Serein, fetching github.com/ARYYDS/Serein-ARC, adding worktrees, or the user runs /serein-optane-wsl.",
+      "when_to_use": "Serein compile, Serein build, Serein test, cargo build, cargo test, go test, musl, fed.sh, FedoraLinux-43, wsl -d FedoraLinux-43, worktree, GOCACHE, CARGO_TARGET_DIR, 9P, GM7, Optane, pwsh, quoting, /serein-optane-wsl, 编译, 构建, 测试, 多分支, 穿缓存",
+      "file_count": 5,
+      "bytes": 21807,
+      "files": [
+        { "path": "SKILL.md", "bytes": 8790, "lines": 170 },
+        { "path": "references/9p.md", "bytes": 6619, "lines": 111 },
+        { "path": "references/layout.md", "bytes": 2316, "lines": 57 },
+        { "path": "references/pwsh.md", "bytes": 3295, "lines": 69 },
+        { "path": "scripts/prune-linux-src.ps1", "bytes": 787, "lines": 26 }
+      ]
+    },
+    {
+      "name": "clipboard-repair",
+      "folder": "clipboard-repair",
+      "path": "D:\\Dev_Skills\\clipboard-repair",
+      "skill_md": "D:\\Dev_Skills\\clipboard-repair\\SKILL.md",
+      "slash": "/clipboard-repair",
+      "description": "Diagnose and fix Windows clipboard CJK mojibake (GBK/UTF-8 bytes shown as Latin-1/CP1252 in Win+V). Use when Chinese copied from Grok, a TUI, clip.exe, OSC 52, PowerShell stdin, or agent output pastes as garbled CJK; when CF_TEXT/CF_UNICODETEXT mismatch; keywords 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair.",
+      "when_to_use": "clipboard mojibake, CF_TEXT, OSC 52, Win+V, 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair",
+      "file_count": 8,
+      "bytes": 13776,
+      "files": [
+        { "path": "SKILL.md", "bytes": 4669, "lines": 91 },
+        { "path": "references/windows-clipboard-encoding.md", "bytes": 3395, "lines": 61 },
+        { "path": "scripts/apply-env.cmd", "bytes": 148, "lines": 4 },
+        { "path": "scripts/apply-host.ps1", "bytes": 3113, "lines": 80 },
+        { "path": "scripts/copy-unicode.cmd", "bytes": 56, "lines": 2 },
+        { "path": "scripts/copy-unicode.ps1", "bytes": 232, "lines": 5 },
+        { "path": "scripts/profile-snippet.ps1", "bytes": 964, "lines": 30 },
+        { "path": "scripts/repair-clipboard.ps1", "bytes": 1199, "lines": 38 }
+      ]
+    }
+  ]
+}
