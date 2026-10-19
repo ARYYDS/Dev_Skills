@@ -63,7 +63,7 @@
       "files": [
         { "path": "claude/README.md", "bytes": 2055, "lines": 37 },
         { "path": "claude/settings.hooks.json", "bytes": 317, "lines": 16 },
-        { "path": "claude/hooks/serein-build-guard.py", "bytes": 10430, "lines": 183 }
+        { "path": "claude/hooks/serein-build-guard.py", "bytes": 11553, "lines": 195 }
       ]
     }
   ]

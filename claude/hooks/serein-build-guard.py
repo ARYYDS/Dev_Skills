@@ -23,6 +23,9 @@ WIN11_SERVER_IDS = {
 }
 
 WSL_CALL = r"(?<![\w.-])wsl(?:\.exe)?(?=\s)"
+# A local command only targets WSL when wsl/wsl.exe sits in command position (start of a line or after ; & | ( ),
+# so commit messages, heredocs and greps that merely mention these words are left alone.
+LOCAL_WSL_AT_CMD = re.compile(r"(?:^|[\n;&|(]\s*)(?:&\s*)?(?:['\"]?[\w:\\/. -]*[\\/])?wsl(?:\.exe)?['\"]?\s", re.I)
 WIN11_MARKERS = re.compile(
     WSL_CALL + r"|FedoraLinux-43|DESKTOP-C4JG869|100\.92\.71\.18|[Oo]:[\\/]Serein|/o/Serein", re.I
 )
@@ -79,12 +82,17 @@ def red_line(cmd):
     if re.search(r"(?<![\w-])(?:fed\.sh['\"]?\s+(?:--exclusive\s+)?(?:run|put|exec|get)|run-locked\.sh['\"]?\s+\S)", cmd):
         return ("fed.sh and run-locked.sh belong to the retired D:\\Workspace flow. "
                 "Use Dev_Skills scripts/wt.sh on the side that builds.")
-    if re.search(r"bash(?:\.exe)?['\"]?\s+-l?c\b.*\bwsl(?:\.exe)?\b.*--cd\s+~(?!['\"])", cmd, re.I | re.S):
-        return ("Inside Git Bash an unquoted ~ becomes C:/Users/ARYYDS before wsl.exe sees it. "
-                "Write --cd '~' and export MSYS_NO_PATHCONV=1.")
+    for m in re.finditer(r"bash(?:\.exe)?['\"]?\s+-l?c\s+(\"[^\"]*\"|'[^']*')", cmd, re.I):
+        script = m.group(1)
+        if re.search(WSL_CALL + r".*--cd\s+~(?!['\"])", script, re.I | re.S):
+            return ("Inside Git Bash an unquoted ~ becomes C:/Users/ARYYDS before wsl.exe sees it. "
+                    "Write --cd '~' and export MSYS_NO_PATHCONV=1.")
     if re.search(r"setx\s+CARGO_TARGET_DIR|SetEnvironmentVariable\(\s*['\"]CARGO_TARGET_DIR['\"]\s*,\s*['\"]", cmd, re.I):
         return "A global CARGO_TARGET_DIR is forbidden. Use one per building Cargo workspace (wt.sh target)."
     return None
+
+
+HEREDOC = re.compile(r"<<-?[ \t]*(['\"]?)([A-Za-z_][\w]*)\1[^\n]*\n.*?\n[ \t]*\2[ \t]*(?=\n|$)", re.S)
 
 
 def decide(event):
@@ -94,11 +102,12 @@ def decide(event):
     cmd = tin.get("command")
     if not isinstance(cmd, str) or not cmd:
         return None
+    cmd = HEREDOC.sub("<<heredoc", cmd)  # heredoc bodies are data (commit messages, file text), not commands
     if tool.startswith("mcp__") and tool.endswith("__exec"):
         if tin.get("serverId") not in WIN11_SERVER_IDS:
             return None
     elif tool in ("Bash", "PowerShell"):
-        if not WIN11_MARKERS.search(cmd):
+        if not LOCAL_WSL_AT_CMD.search(cmd):
             return None
     else:
         return None
@@ -139,10 +148,13 @@ def self_test():
         ("mcp__USGL__exec", {"serverId": w, "command": "\"C:\\Program Files\\Git\\bin\\bash.exe\" -lc \"export MSYS_NO_PATHCONV=1; wsl.exe -d FedoraLinux-43 -u SR --cd '~' --exec pwd\""}, "ctx"),
         ("mcp__USGL__exec", {"serverId": w, "command": "git -C O:\\Serein\\repo.git grep -n 'fed.sh' origin/v2/main -- build"}, "none"),
         ("mcp__USGL__exec", {"serverId": w, "command": "dir O:\\WinCache"}, "none"),
+        ("mcp__USGL__exec", {"serverId": w, "command": "\"C:\\Program Files\\Git\\bin\\bash.exe\" -lc \"command -v node\" & wsl.exe -d FedoraLinux-43 -u SR --cd ~ --exec bash -lc \"command -v buf\""}, "ctx"),
         ("mcp__USGL__exec", {"serverId": w, "command": "setx CARGO_TARGET_DIR O:\\x"}, "deny"),
         ("mcp__USGL__exec", {"serverId": "other", "command": "wsl -d fedoraremix -- bash -lc 'X=1; echo $X'"}, "none"),
         ("Bash", {"command": "git -C /c/code/Dev_Skills status"}, "none"),
         ("Bash", {"command": "grep -n 'wsl' notes.md"}, "none"),
+        ("Bash", {"command": "git commit -q -F - <<'EOF'\nno /mnt, no \\\\wsl$, FedoraLinux-43 user SR; wsl.exe -d fedoraremix is retired\nEOF"}, "none"),
+        ("Bash", {"command": "cd /x && wsl.exe -d FedoraLinux-43 -u SR --cd ~ --exec bash -lc 'cp /mnt/c/a ~/a'"}, "deny"),
         ("PowerShell", {"command": "wsl -d FedoraLinux-43 -u SR -- bash -lc 'X=abc; echo $X'"}, "deny"),
         ("Read", {"file_path": "x"}, "none"),
     ]

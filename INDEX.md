@@ -23,7 +23,7 @@ Machine-readable copy: [`index.json`](index.json).
 |---|---|---:|---:|---|
 | [WSL-PWSH-9P-Errors](WSL-PWSH-9P-Errors/SKILL.md) | `/serein-optane-wsl` | 6 | 37424 | Serein on Win11: O: Windows, P: FedoraLinux-43 SR; GitHub fetch only; `--exec`; worktrees; test branches; long jobs |
 | [clipboard-repair](clipboard-repair/SKILL.md) | `/clipboard-repair` | 8 | 14224 | Windows clipboard CJK mojibake |
-| [claude](claude/README.md) | - | 3 | 12802 | Claude Code junction and `serein-build-guard` PreToolUse hook |
+| [claude](claude/README.md) | - | 3 | 13925 | Claude Code junction and `serein-build-guard` PreToolUse hook |
 
 ## Trees
 
@@ -88,4 +88,4 @@ Dev_Skills\
 |---|---:|---:|
 | `README.md` | 37 | 2055 |
 | `settings.hooks.json` | 16 | 317 |
-| `hooks/serein-build-guard.py` | 183 | 10430 |
+| `hooks/serein-build-guard.py` | 195 | 11553 |
