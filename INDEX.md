@@ -23,6 +23,7 @@ Machine-readable copy: [`index.json`](index.json).
 |---|---|---:|---:|---|
 | [WSL-PWSH-9P-Errors](WSL-PWSH-9P-Errors/SKILL.md) | `/serein-optane-wsl` | 6 | 37735 | Serein on Win11: O: Windows, P: FedoraLinux-43 SR; GitHub fetch only; `--exec`; worktrees; test branches; long jobs |
 | [clipboard-repair](clipboard-repair/SKILL.md) | `/clipboard-repair` | 8 | 14224 | Windows clipboard CJK mojibake |
+| [DSH-Purge-install-skills](DSH-Purge-install-skills/SKILL.md) | `/dsh-purge-install-skills` | 4 | 14651 | Official DSH Desktop: install Purge Community 1.6.27, unseal app.asar, verify left-rail Purge |
 | [claude](claude/README.md) | - | 3 | 13925 | Claude Code junction and `serein-build-guard` PreToolUse hook |
 
 ## Trees
@@ -51,6 +52,12 @@ Dev_Skills\
 |       |-- copy-unicode.ps1
 |       |-- profile-snippet.ps1
 |       `-- repair-clipboard.ps1
+|-- DSH-Purge-install-skills\
+|   |-- SKILL.md
+|   `-- references\
+|       |-- architecture.md
+|       |-- pitfalls.md
+|       `-- windows-asar.md
 `-- claude\
     |-- README.md
     |-- settings.hooks.json
@@ -81,6 +88,15 @@ Dev_Skills\
 | `scripts/copy-unicode.ps1` | 5 | 232 |
 | `scripts/apply-env.cmd` | 4 | 148 |
 | `scripts/copy-unicode.cmd` | 2 | 56 |
+
+## dsh-purge-install-skills files
+
+| Path | Lines | Bytes |
+|---|---:|---:|
+| `SKILL.md` | 144 | 5944 |
+| `references/architecture.md` | 64 | 2699 |
+| `references/pitfalls.md` | 83 | 3857 |
+| `references/windows-asar.md` | 55 | 2151 |
 
 ## claude files
 

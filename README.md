@@ -50,6 +50,7 @@ Call WSL as `wsl.exe -d FedoraLinux-43 -u SR --cd ~ --exec bash -lc '...'`; neve
 |---|---|---|
 | [`WSL-PWSH-9P-Errors`](WSL-PWSH-9P-Errors/SKILL.md) | `/serein-optane-wsl` | Serein compile and test on O: (Windows) and P: (FedoraLinux-43, SR); GitHub fetch only; worktrees; test branches; long jobs |
 | [`clipboard-repair`](clipboard-repair/SKILL.md) | `/clipboard-repair` | Windows clipboard CJK mojibake (`CF_UNICODETEXT`); Grok-specific, not installed into Claude |
+| [`DSH-Purge-install-skills`](DSH-Purge-install-skills/SKILL.md) | `/dsh-purge-install-skills` | Official DeepSeek Harness Desktop: Purge Community 1.6.27 install, `app.asar` unseal, left-rail verify |
 | [`claude`](claude/README.md) | - | Claude Code skill junction and the `serein-build-guard` PreToolUse hook |
 
 Human index: [`INDEX.md`](INDEX.md). JSON: [`index.json`](index.json).

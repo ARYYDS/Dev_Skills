@@ -1,6 +1,6 @@
 {
   "root": "C:\\code\\Dev_Skills",
-  "generated_at": "2026-10-18T20:00:00-07:00",
+  "generated_at": "2026-10-18T21:10:00-07:00",
   "writer": "dev machine C:\\code\\Dev_Skills (only pusher)",
   "copies": {
     "win11_windows": "D:\\Dev_Skills (pull --ff-only)",
@@ -49,6 +49,21 @@
         { "path": "scripts/copy-unicode.ps1", "bytes": 232, "lines": 5 },
         { "path": "scripts/profile-snippet.ps1", "bytes": 964, "lines": 30 },
         { "path": "scripts/repair-clipboard.ps1", "bytes": 1199, "lines": 38 }
+      ]
+    },
+    {
+      "name": "dsh-purge-install-skills",
+      "folder": "DSH-Purge-install-skills",
+      "slash": "/dsh-purge-install-skills",
+      "description": "Install Purge Community (dsh-purge-community) onto official DeepSeek Harness Desktop, apply host patches, unseal app.asar, and verify the left-rail Purge page. Use when installing or repairing dsh-purge / Purge Community on DSH 0.2.1-rc.1/rc.2, when the plugin shows Not running, when slash commands are ignored, when status lists patches as undefined, or when the user runs /dsh-purge-install-skills.",
+      "when_to_use": "dsh-purge, Purge Community, dsh-purge-community, DeepSeek Harness plugin install, app.asar unseal, /purge status, yaml ERR_MODULE_NOT_FOUND, /dsh-purge-install-skills",
+      "file_count": 4,
+      "bytes": 14651,
+      "files": [
+        { "path": "SKILL.md", "bytes": 5944, "lines": 144 },
+        { "path": "references/architecture.md", "bytes": 2699, "lines": 64 },
+        { "path": "references/pitfalls.md", "bytes": 3857, "lines": 83 },
+        { "path": "references/windows-asar.md", "bytes": 2151, "lines": 55 }
       ]
     }
   ],
