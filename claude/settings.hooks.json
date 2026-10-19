@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|mcp__USGL__exec",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -I C:/code/Dev_Skills/claude/hooks/serein-build-guard.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

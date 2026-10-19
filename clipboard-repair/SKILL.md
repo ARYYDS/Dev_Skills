@@ -6,6 +6,7 @@ description: >
   OSC 52, PowerShell stdin, or agent output pastes as ±¾µØ, æœ¬åœ°, or 澶嶅埗;
   when CF_TEXT/CF_UNICODETEXT mismatch; keywords 剪贴板乱码, 复制中文乱码,
   GROK_CLIPBOARD_NO_OSC52, /clipboard-repair.
+when_to_use: "clipboard mojibake, CF_TEXT, OSC 52, Win+V, 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair"
 when-to-use: "clipboard mojibake, CF_TEXT, OSC 52, Win+V, 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair"
 ---
 
@@ -39,7 +40,9 @@ Windows 上中文在屏幕上正常、复制后变乱码。根因是写入端交
 pwsh -NoProfile -File "$env:USERPROFILE\.grok\skills\clipboard-repair\scripts\apply-host.ps1"
 ```
 
-技能未拷到 `~\.grok\skills` 时，改用本仓库里 `plugins/clipboard-repair/skills/clipboard-repair/scripts/apply-host.ps1`。
+技能未链到 `~\.grok\skills` 时，改用本仓库的 `D:\Dev_Skills\clipboard-repair\scripts\apply-host.ps1`。
+
+注意：`apply-host.ps1` 会把 CurrentUser 执行策略设成 RemoteSigned，并改用户 PATH 和两份 PowerShell profile。这些是用户级配置，要用户明确同意后才运行。Windows PowerShell 5.1 在本机的执行策略是 Restricted，所以 5.1 的 profile 片段不会加载；只有 pwsh 7 会加载。
 
 它会：用户环境写入 `GROK_CLIPBOARD_NO_OSC52=1`；把脚本拷到 `%USERPROFILE%\.grok\bin`；把该目录加入用户 PATH；把 UTF-8/`Copy-UnicodeText`/`Repair-ClipboardMojibake` 并进 PowerShell 7 与 5.1 profile；用 `本地控制协议` 做 `Set-Clipboard` 往返和 GBK→Latin-1 修复自检。
 

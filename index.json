@@ -1,44 +1,47 @@
 {
-  "root": "D:\\Dev_Skills",
-  "generated_at": "2026-10-18T09:00:00-07:00",
-  "host": "DESKTOP-C4JG869",
-  "canonical": "Skill bodies live here. Client discovery paths are directory junctions into this root.",
+  "root": "C:\\code\\Dev_Skills",
+  "generated_at": "2026-10-18T20:00:00-07:00",
+  "writer": "dev machine C:\\code\\Dev_Skills (only pusher)",
+  "copies": {
+    "win11_windows": "D:\\Dev_Skills (pull --ff-only)",
+    "win11_linux": "FedoraLinux-43 user SR ~/Dev_Skills (pull --ff-only)"
+  },
+  "canonical": "Skill bodies live here. Client discovery paths are directory junctions into a copy of this tree; the junction name is the slash name.",
   "discovery": {
-    "grok": "C:\\Users\\ARYYDS\\.grok\\skills\\<name>",
-    "dsh": "C:\\Users\\ARYYDS\\.dsh\\skills\\<name>",
-    "agents": "C:\\Users\\ARYYDS\\.agents\\skills\\<name>"
+    "claude": "C:\\Users\\Administrator\\.claude\\skills\\serein-optane-wsl -> C:\\code\\Dev_Skills\\WSL-PWSH-9P-Errors",
+    "claude_hook": "C:\\Users\\Administrator\\.claude\\settings.json PreToolUse Bash|PowerShell|mcp__USGL__exec -> claude\\hooks\\serein-build-guard.py",
+    "grok": "C:\\Users\\ARYYDS\\.grok\\skills\\<name> -> D:\\Dev_Skills\\<folder>",
+    "dsh": "C:\\Users\\ARYYDS\\.dsh\\skills\\serein-optane-wsl -> D:\\Dev_Skills\\WSL-PWSH-9P-Errors",
+    "agents": "C:\\Users\\ARYYDS\\.agents\\skills\\serein-optane-wsl -> D:\\Dev_Skills\\WSL-PWSH-9P-Errors"
   },
   "skills": [
     {
       "name": "serein-optane-wsl",
       "folder": "WSL-PWSH-9P-Errors",
-      "path": "D:\\Dev_Skills\\WSL-PWSH-9P-Errors",
-      "skill_md": "D:\\Dev_Skills\\WSL-PWSH-9P-Errors\\SKILL.md",
       "slash": "/serein-optane-wsl",
-      "description": "Load this skill before Serein compile, cargo build, go test, Linux package, fed.sh, WSL, git worktree, fetch, or Optane/GM7/9P path choice on DESKTOP-C4JG869. Sync with git fetch, never 9P copy. Keep automount off. Quote POSIX for pwsh 7. Linux is wsl -d FedoraLinux-43 -u SR. One-shot test worktrees are removed when the test ends. Use when compiling or testing Serein, fetching github.com/ARYYDS/Serein-ARC, adding worktrees, or the user runs /serein-optane-wsl.",
-      "when_to_use": "Serein compile, Serein build, Serein test, cargo build, cargo test, go test, musl, fed.sh, FedoraLinux-43, wsl -d FedoraLinux-43, worktree, GOCACHE, CARGO_TARGET_DIR, 9P, GM7, Optane, pwsh, quoting, /serein-optane-wsl, 编译, 构建, 测试, 多分支, 穿缓存",
-      "file_count": 5,
-      "bytes": 21807,
+      "description": "Load before any Serein compile, build, test, cargo, go test, git fetch or worktree, or WSL job on Win11 DESKTOP-C4JG869. Windows work lives on O: (Git Bash, O:\\Serein). Linux work lives on P: as FedoraLinux-43 user SR. GitHub is the only path between them: each side runs git fetch; no /mnt, no \\\\wsl$, no files over wsl.exe stdin. Call WSL with --exec, never --. Test branches and one-shot worktrees are deleted when the test ends. Use when compiling or testing Serein, fetching github.com/ARYYDS/Serein-ARC, adding worktrees, or the user runs /serein-optane-wsl.",
+      "when_to_use": "Serein compile, build, test, cargo build/check/test, go build/test/vet, musl, WSL, wsl.exe, FedoraLinux-43, user SR, O: drive, P: drive, Optane, git worktree, git fetch, test branch, CARGO_TARGET_DIR, GOCACHE, 9P, /mnt, Git Bash, pwsh quoting, SSH to Win11, long build over 10 minutes, /serein-optane-wsl, 编译, 构建, 测试, 多分支, 删分支",
+      "file_count": 6,
+      "bytes": 37424,
       "files": [
-        { "path": "SKILL.md", "bytes": 8790, "lines": 170 },
-        { "path": "references/9p.md", "bytes": 6619, "lines": 111 },
-        { "path": "references/layout.md", "bytes": 2316, "lines": 57 },
-        { "path": "references/pwsh.md", "bytes": 3295, "lines": 69 },
-        { "path": "scripts/prune-linux-src.ps1", "bytes": 787, "lines": 26 }
+        { "path": "SKILL.md", "bytes": 10301, "lines": 148 },
+        { "path": "references/9p.md", "bytes": 7310, "lines": 107 },
+        { "path": "references/layout.md", "bytes": 5067, "lines": 77 },
+        { "path": "references/pwsh.md", "bytes": 4094, "lines": 56 },
+        { "path": "scripts/wt.sh", "bytes": 8300, "lines": 209 },
+        { "path": "scripts/bg.sh", "bytes": 2352, "lines": 39 }
       ]
     },
     {
       "name": "clipboard-repair",
       "folder": "clipboard-repair",
-      "path": "D:\\Dev_Skills\\clipboard-repair",
-      "skill_md": "D:\\Dev_Skills\\clipboard-repair\\SKILL.md",
       "slash": "/clipboard-repair",
       "description": "Diagnose and fix Windows clipboard CJK mojibake (GBK/UTF-8 bytes shown as Latin-1/CP1252 in Win+V). Use when Chinese copied from Grok, a TUI, clip.exe, OSC 52, PowerShell stdin, or agent output pastes as garbled CJK; when CF_TEXT/CF_UNICODETEXT mismatch; keywords 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair.",
       "when_to_use": "clipboard mojibake, CF_TEXT, OSC 52, Win+V, 剪贴板乱码, 复制中文乱码, GROK_CLIPBOARD_NO_OSC52, /clipboard-repair",
       "file_count": 8,
-      "bytes": 13776,
+      "bytes": 14224,
       "files": [
-        { "path": "SKILL.md", "bytes": 4669, "lines": 91 },
+        { "path": "SKILL.md", "bytes": 5117, "lines": 94 },
         { "path": "references/windows-clipboard-encoding.md", "bytes": 3395, "lines": 61 },
         { "path": "scripts/apply-env.cmd", "bytes": 148, "lines": 4 },
         { "path": "scripts/apply-host.ps1", "bytes": 3113, "lines": 80 },
@@ -46,6 +49,21 @@
         { "path": "scripts/copy-unicode.ps1", "bytes": 232, "lines": 5 },
         { "path": "scripts/profile-snippet.ps1", "bytes": 964, "lines": 30 },
         { "path": "scripts/repair-clipboard.ps1", "bytes": 1199, "lines": 38 }
+      ]
+    }
+  ],
+  "hooks": [
+    {
+      "name": "serein-build-guard",
+      "event": "PreToolUse",
+      "matcher": "Bash|PowerShell|mcp__USGL__exec",
+      "path": "claude/hooks/serein-build-guard.py",
+      "settings": "claude/settings.hooks.json",
+      "self_test": "python -I claude/hooks/serein-build-guard.py --self-test",
+      "files": [
+        { "path": "claude/README.md", "bytes": 2055, "lines": 37 },
+        { "path": "claude/settings.hooks.json", "bytes": 317, "lines": 16 },
+        { "path": "claude/hooks/serein-build-guard.py", "bytes": 10430, "lines": 183 }
       ]
     }
   ]
