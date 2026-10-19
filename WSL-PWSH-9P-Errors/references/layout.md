@@ -32,7 +32,7 @@ Read this file for roots. `scripts/wt.sh` creates the children. Do not add anoth
 
 `ARYYDS` on FedoraLinux-43 is `nologin`. `fedoraremix` and `Fedora43` are not used.
 
-Toolchains (2026-10-18): Windows go 1.27.1 system (go.work asks for 1.27.2, so set `GOTOOLCHAIN` deliberately and record it), rustc/cargo 1.99.0, Git 2.56, pwsh 7.6. Linux go 1.27.2 (`~/tools/go`), rustc/cargo 1.99.0 with the musl target, protoc 36.2, buf 1.59.0, cargo-deny 0.20.2, gcc 15.3, musl-gcc. Linux has no `awk`, `jq` or `gh`; only experiment harness scripts use awk.
+Toolchains: the authoritative list with versions and SHA-256 is the "工具链" table in Serein-ARC `build/README.md` (v2/main e5091ed7, 2026-10-18). Tool roots: Windows `O:\WinCache\tools` (`bin\` gitleaks, cargo-deny, buf, sccache; `go\` go1.27.2; `node-v24.21.0-win-x64`; `msys64` for `-race`), put on PATH per job with `GOTOOLCHAIN=local` (the system go 1.27.1 and Node 24.19.0 stay unused); Linux `~/tools` (`SEREIN_ARC_TOOLS`, `~/tools/bin` first on PATH via `~/.serein-env`; go1.27.2, protoc 36.2 and its plugins, gitleaks, cargo-deny, buf 1.73.0, sccache). Rust 1.99.0 on both sides, musl target on Linux. Linux has no `awk`, `jq` or `gh`; only experiment harness scripts use awk.
 
 ## Parents (create once if missing)
 

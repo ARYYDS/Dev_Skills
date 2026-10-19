@@ -22,11 +22,11 @@
       "description": "Load before any Serein compile, build, test, cargo, go test, git fetch or worktree, or WSL job on Win11 DESKTOP-C4JG869. Windows work lives on O: (Git Bash, O:\\Serein). Linux work lives on P: as FedoraLinux-43 user SR. GitHub is the only path between them: each side runs git fetch; no /mnt, no \\\\wsl$, no files over wsl.exe stdin. Call WSL with --exec, never --. Test branches and one-shot worktrees are deleted when the test ends. Use when compiling or testing Serein, fetching github.com/ARYYDS/Serein-ARC, adding worktrees, or the user runs /serein-optane-wsl.",
       "when_to_use": "Serein compile, build, test, cargo build/check/test, go build/test/vet, musl, WSL, wsl.exe, FedoraLinux-43, user SR, O: drive, P: drive, Optane, git worktree, git fetch, test branch, CARGO_TARGET_DIR, GOCACHE, 9P, /mnt, Git Bash, pwsh quoting, SSH to Win11, long build over 10 minutes, /serein-optane-wsl, 编译, 构建, 测试, 多分支, 删分支",
       "file_count": 6,
-      "bytes": 37424,
+      "bytes": 37735,
       "files": [
         { "path": "SKILL.md", "bytes": 10301, "lines": 148 },
         { "path": "references/9p.md", "bytes": 7310, "lines": 107 },
-        { "path": "references/layout.md", "bytes": 5067, "lines": 77 },
+        { "path": "references/layout.md", "bytes": 5378, "lines": 77 },
         { "path": "references/pwsh.md", "bytes": 4094, "lines": 56 },
         { "path": "scripts/wt.sh", "bytes": 8300, "lines": 209 },
         { "path": "scripts/bg.sh", "bytes": 2352, "lines": 39 }

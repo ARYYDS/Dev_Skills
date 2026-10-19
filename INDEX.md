@@ -21,7 +21,7 @@ Machine-readable copy: [`index.json`](index.json).
 
 | Name | Slash | Files | Bytes | Role |
 |---|---|---:|---:|---|
-| [WSL-PWSH-9P-Errors](WSL-PWSH-9P-Errors/SKILL.md) | `/serein-optane-wsl` | 6 | 37424 | Serein on Win11: O: Windows, P: FedoraLinux-43 SR; GitHub fetch only; `--exec`; worktrees; test branches; long jobs |
+| [WSL-PWSH-9P-Errors](WSL-PWSH-9P-Errors/SKILL.md) | `/serein-optane-wsl` | 6 | 37735 | Serein on Win11: O: Windows, P: FedoraLinux-43 SR; GitHub fetch only; `--exec`; worktrees; test branches; long jobs |
 | [clipboard-repair](clipboard-repair/SKILL.md) | `/clipboard-repair` | 8 | 14224 | Windows clipboard CJK mojibake |
 | [claude](claude/README.md) | - | 3 | 13925 | Claude Code junction and `serein-build-guard` PreToolUse hook |
 
@@ -64,7 +64,7 @@ Dev_Skills\
 |---|---:|---:|
 | `SKILL.md` | 148 | 10301 |
 | `references/9p.md` | 107 | 7310 |
-| `references/layout.md` | 77 | 5067 |
+| `references/layout.md` | 77 | 5378 |
 | `references/pwsh.md` | 56 | 4094 |
 | `scripts/wt.sh` | 209 | 8300 |
 | `scripts/bg.sh` | 39 | 2352 |
